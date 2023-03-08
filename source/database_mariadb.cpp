@@ -283,7 +283,6 @@ namespace database
   {
     std::string const COMMITTRANSACTION = "COMMIT";
 
-    DEBUGMESSAGE("Committing last transaction");
     if (mysql_real_query(connectionPool[handle].mysql, COMMITTRANSACTION.c_str(), COMMITTRANSACTION.length()))
     {
       RUNTIME_ERROR(processError(handle));
@@ -296,7 +295,7 @@ namespace database
       connectionPool[handle].tip = false;
     };
 
-    DEBUGMESSAGE(COMMITTRANSACTION);
+    DEBUGMESSAGE("COMMIT TRANSACTION");
 
     connectionPool[handle].validRecord = false;
   }
